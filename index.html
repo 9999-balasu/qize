@@ -1,0 +1,131 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            color: red;
+            font-weight: bold;
+        }
+        .button {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Quiz</h1>
+    <form id="quiz-form">
+        <div class="question">
+            <p>Who introduced JavaScript?</p>
+            <label><input type="radio" name="q1" value="Tim Berners-Lee"> Tim Berners-Lee</label><br>
+            <label><input type="radio" name="q1" value="Brendan Eich"> Brendan Eich</label><br>
+            <label><input type="radio" name="q1" value="Dennis Ritchie"> Dennis Ritchie</label><br>
+            <label><input type="radio" name="q1" value="Guido van Rossum"> Guido van Rossum</label>
+        </div>
+
+        <div class="question">
+            <p>How many days did it take to introduce JavaScript?</p>
+            <label><input type="radio" name="q2" value="10 days"> 10 days</label><br>
+            <label><input type="radio" name="q2" value="30 days"> 30 days</label><br>
+            <label><input type="radio" name="q2" value="90 days"> 90 days</label><br>
+            <label><input type="radio" name="q2" value="180 days"> 180 days</label>
+        </div>
+
+        <div class="question">
+            <p>In which year was JavaScript introduced?</p>
+            <label><input type="radio" name="q3" value="1990"> 1990</label><br>
+            <label><input type="radio" name="q3" value="1995"> 1995</label><br>
+            <label><input type="radio" name="q3" value="2000"> 2000</label><br>
+            <label><input type="radio" name="q3" value="2005"> 2005</label><br>
+        </div>
+
+        <div class="question">
+            <p>Which company introduced JavaScript?</p>
+            <label><input type="radio" name="q4" value="Microsoft"> Microsoft</label><br>
+            <label><input type="radio" name="q4" value="Netscape"> Netscape</label><br>
+            <label><input type="radio" name="q4" value="Google"> Google</label><br>
+            <label><input type="radio" name="q4" value="Apple"> Apple</label>
+        </div>
+
+        <div class="question">
+            <p>What was the original name of JavaScript when it was first introduced?</p>
+            <label><input type="radio" name="q5" value="Mocha"> Mocha</label><br>
+            <label><input type="radio" name="q5" value="LiveScript"> LiveScript</label><br>
+            <label><input type="radio" name="q5" value="ECMAScript"> ECMAScript</label><br>
+            <label><input type="radio" name="q5" value="ScriptEase"> ScriptEase</label>
+        </div>
+        <button type="button" class="button" onclick="checkAnswers()">Submit</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            const form = document.getElementById('quiz-form');
+            const answers = new FormData(form);
+
+            // Correct answers
+            const correctAnswers = {
+                q1: 'Brendan Eich',
+                q2: '10 days',
+                q3: '1995',
+                q4: 'Netscape',
+                q5: 'Mocha',
+            };
+
+            let score = 0;
+
+            // Check each answer
+            for (const question in correctAnswers) {
+                if (answers.get(question) === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Display the score
+            document.getElementById('result').textContent = `Your score is ${score}/5`;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ 
